@@ -1,0 +1,13 @@
+from aq_dashboard import Record
+
+Record.query.all()[:5]
+
+import openaq
+from aq_dashboard import get_results
+
+
+
+def get_results():
+    api = openaq.OpenAQ()
+    status, body= api.measurements(city='Los Angeles', parameter='pm25', limit=100)
+    return body
